@@ -8,4 +8,5 @@
 .PokemonCard-title {
     text-align: center;
     color: #999;
+    text-transform: capitalize;
 }

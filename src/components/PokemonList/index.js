@@ -1,13 +1,12 @@
 import PokemonCard from "./PokemonCard";
 import {Grid} from "semantic-ui-react";
 
-const PokemonList = () => {
-  const pokemons = Array(20).fill('');
+const PokemonList = ({pokemons}) => {
 
   return(
       <Grid className="Pokemonlist">
           { pokemons.map((pokemon) => (
-             <PokemonCard { ...pokemon } />
+             <PokemonCard pokemon={pokemon} />
           ))}
       </Grid>
   )
