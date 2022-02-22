@@ -7,10 +7,12 @@ import pokemonReducer from "./redux/reducers";
 import {Provider} from "react-redux";
 import {applyMiddleware, compose, createStore} from "redux";
 import { logActions } from './redux/middlewares';
+import thunk from "redux-thunk";
 
-const composedEnhancer = compose(
-    (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
-    applyMiddleware(logActions)
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+
+const composedEnhancer = composeAlt(
+    applyMiddleware(thunk, logActions)
 )
 
 const store = createStore(

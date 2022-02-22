@@ -1,6 +1,6 @@
-import {Icon, Image, Label} from "semantic-ui-react";
-import {FAV_COLOR, MAIN_COLOR} from "../../utils/constants";
-import {Grid} from "semantic-ui-react";
+import { Icon, Image, Label } from "semantic-ui-react";
+import { FAV_COLOR, MAIN_COLOR } from "../../utils/constants";
+import { Grid } from "semantic-ui-react";
 import './styles.css';
 
 const PokemonCard = ({pokemon}) => {
