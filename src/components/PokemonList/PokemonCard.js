@@ -4,15 +4,17 @@ import {Grid} from "semantic-ui-react";
 import './styles.css';
 
 const PokemonCard = ({pokemon}) => {
-    const {name} = pokemon;
+    const {name, sprites: { front_default }, types, id } = pokemon;
 
     return(
         <Grid.Column mobile={16} tablet={8} computer={4} >
             <div className="PokemonCard">
                 <Icon name="favorite" color={FAV_COLOR} />
-                <Image centered src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="Pokemon" />
+                <Image centered src={front_default} alt="Pokemon" />
                 <p className="PokemonCard-title">{name}</p>
-                <Label color={MAIN_COLOR}>Normal</Label>
+                { (types?.length && types.map(type =>
+                    <Label color={MAIN_COLOR} key={`${id}-${type.type.name}`}>{type.type.name}</Label>
+                ))}
             </div>
         </Grid.Column>
     )
